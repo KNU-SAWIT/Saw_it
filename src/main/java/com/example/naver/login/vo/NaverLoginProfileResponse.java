@@ -1,15 +1,28 @@
-package com.example.naver.repository;
+package com.example.naver.login.vo;
 
 import com.example.naver.entity.NaverLoginProfile;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import lombok.Data;
 
-import java.util.List;
+@Data
+public class NaverLoginProfileResponse {
 
-@Repository
-public interface NaverLoginProfileRepository extends JpaRepository<NaverLoginProfile, Long> {
+    // API 호출 결과 코드
+    private String resultcode;
 
-    @Query("SELECT p FROM NaverLoginProfile p ORDER BY p.loginTime DESC") // 실제 필드명에 맞게 수정
-    List<NaverLoginProfile> findLatestProfiles();
+    // 호출 결과 메시지
+    private String message;
+
+    // Profile 상세
+    private Response response;
+
+    @Data
+    public static class Response {
+        private String id;
+        private String name;
+        private String email;
+        private String gender;
+        private String birthday;
+        private String birthyear;
+        private String mobile;
+    }
 }
