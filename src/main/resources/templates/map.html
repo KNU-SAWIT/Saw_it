@@ -351,7 +351,7 @@
         <ul>
             <li><a href="#" onclick="navigate('커뮤니티')">커뮤니티</a></li>
             <li><a href="#">전문가 상담</a></li>
-            <li><a href="#">프로필</a></li>
+            <li><a href="#" onclick="navigate('프로필')">프로필</a></li>
             <li><a href="#">menu4</a></li>
             <li><a href="#">menu5</a></li>
         </ul>
@@ -373,12 +373,13 @@
 
 
 <script>
-    function navigate(page) {
-        if (page === '커뮤니티') {
+    function navigate(destination) {
+        if (destination === '커뮤니티') {
             window.location.href = 'http://localhost:8080/board/list';
+        } else if (destination === '프로필') {
+            window.location.href = 'http://localhost:8080/naver/profile';
         }
     }
-
     var mapContainer = document.getElementById('map'),
         mapOption = {
             center: new kakao.maps.LatLng(37.49676871972202, 127.02474726969814),
