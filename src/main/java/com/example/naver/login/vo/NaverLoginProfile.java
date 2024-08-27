@@ -1,37 +1,33 @@
-package com.example.naver.login.vo;
+package com.example.naver.entity;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Builder
 public class NaverLoginProfile {
 
-    // 동일인 식별 정보는 네이버 아이디마다 고유하게 발급되는 값입니다.
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    // 사용자 별명
-    private String nickname;
-
-    // 사용자 이름
     private String name;
-
-    // 	사용자 메일 주소
     private String email;
-
-    // 성별
     private String gender;
-
-    // 사용자 연령대
-    private String age;
-
-    // 사용자 생일(MM-DD 형식)
     private String birthday;
-
-    // 사용자 프로필 사진 URL
-    private String profile_image;
-
-    // 출생연도
     private String birthyear;
-
-    // 휴대전화번호
     private String mobile;
+
+    // 접속 시각 필드 추가
+    private LocalDateTime loginTime;
 }
